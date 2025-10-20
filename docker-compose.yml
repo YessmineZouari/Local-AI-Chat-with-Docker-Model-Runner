@@ -1,0 +1,32 @@
+services:
+  proxy:
+    build: ./proxy
+    ports:
+      - "3001:3001"
+    environment:
+      - MODEL_URL=http://host.docker.internal:12434
+    networks:
+      - ai-network
+
+  chat:
+    build: ./chat-react
+    depends_on:
+      - proxy
+    ports:
+      - "5000:5000"
+    environment:
+      - VITE_PROXY_URL=http://localhost:3001
+    networks:
+      - ai-network
+
+  ai_runner:
+    provider:
+      type: model
+      options:
+        model: ai/smollm2
+    networks:
+      - ai-network
+
+networks:
+  ai-network:
+    driver: bridge
