@@ -25,7 +25,7 @@ A **React-based chat interface** powered by **Docker Model Runner** and **ai/smo
 
 ---
 
-## Development (Without Docker)
+## Development ( Without Docker )
 
 ### Start the Proxy Server
 
