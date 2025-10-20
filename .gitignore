@@ -1,8 +1,2 @@
-# Node / React
-node_modules/
-dist/
+# Ignore environment files
 .env
-.DS_Store
-
-# Docker
-*.log
